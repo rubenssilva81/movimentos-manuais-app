@@ -1,0 +1,35 @@
+# ===================================================================
+# SPRING BOOT PROPERTIES
+# ===================================================================
+# https://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
+
+# LOGGING
+# Location of the logging configuration file. For instance, `classpath:logback.xml` for Logback.
+logging:
+  config: "classpath:logback-spring.xml"
+
+# EMBEDDED SERVER CONFIGURATION (ServerProperties)
+server:
+  address: 0.0.0.0
+  port: 8080
+
+spring:
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:tcp://localhost:9092/~/test
+    username: "sa"
+    password: "sa"
+    hikari:
+      maximum-pool-size: 1
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        show-sql: true
+        dialect: "org.hibernate.dialect.H2Dialect"
+      javax:
+        persistence:
+          validation:
+            mode: "none"
+
